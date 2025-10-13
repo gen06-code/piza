@@ -18,51 +18,53 @@
 
 
         <div class="col-md-8">
-            
+
             <div class="card">
                 <div class="card-header">Pizza</div>
+                <form action="{{route('pizza.store')}}" method="post">@csrf
 
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="name">Name of pizza</label>
-                        <input type="text" class="form-control" name="name" placeholder="name of pizza">
-                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="name">Name of pizza</label>
+                            <input type="text" class="form-control" name="name" placeholder="name of pizza">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="description">Description of pizza</label>
-                        <textarea class="form-control" name="description"></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="description">Description of pizza</label>
+                            <textarea class="form-control" name="description"></textarea>
+                        </div>
 
-                    <div class="form-inline">
-                        <label>Pizza price($)</label>
-                        <input type="number" class="form-control" placeholder="small pizza price">
-                        <input type="number" class="form-control" placeholder="medium pizza price">
-                        <input type="number" class="form-control" placeholder="large pizza price">
-                    </div>
+                        <div class="form-inline">
+                            <label>Pizza price($)</label>
+                            <input type="number" name="small_pizza_price" class="form-control" placeholder="small pizza price">
+                            <input type="number" name="medium_pizza_price" class="form-control" placeholder="medium pizza price">
+                            <input type="number" name="large_pizza_price" class="form-control" placeholder="large pizza price">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="description">Category</label>
-                        <select>
-                            <option value="vegetarian">Vegetarian Pizza</option>
-                            <option value="non-vegetarian">Non vegetarian Pizza</option>
-                            <option value="traditional">Traditional Pizza</option>
-                            <option value=""></option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="description">Category</label>
+                            <select class="form-control" name="category">
+                                <option value="vegetarian">Vegetarian Pizza</option>
+                                <option value="non-vegetarian">Non vegetarian Pizza</option>
+                                <option value="traditional">Traditional Pizza</option>
+                                <option value=""></option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Image</label>
-                        <input type="file" class="form-control">
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file" name="image" class="form-control">
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
                     </div>
-                    <div class="form-group text-center">
-                        <button class="btn btn-primary" type="submit">Save</button>
-                    </div>
-                </div>
+                </form>
             </div>
-        
 
 
-<!--             
+
+            <!--             
 
             <div class="card">
                 <div class="card-header">Pizza</div>
