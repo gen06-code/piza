@@ -21,6 +21,17 @@
 
             <div class="card">
                 <div class="card-header">Pizza</div>
+                    @if (count($errors)>0)
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                    @endif
+
+
+
+
                 <form action="{{route('pizza.store')}}" method="post">@csrf
 
                     <div class="card-body">
