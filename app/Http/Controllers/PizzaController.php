@@ -69,7 +69,8 @@ class PizzaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pizza = Pizza::find($id);
+        return view('pizza.edit',compact('pizza'));
     }
 
     /**
