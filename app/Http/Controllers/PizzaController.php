@@ -15,7 +15,7 @@ class PizzaController extends Controller
      */
     public function index()
     {
-        return "pizza created";
+        return view('pizza.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class PizzaController extends Controller
             'category' => $request->category,
             'image' => $path,
         ]);
-        return redirect()->route('pizza.index');
+        return redirect()->route('pizza.index')->with('message','Pizza added successfully!');
     }
 
     /**
