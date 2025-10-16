@@ -5,7 +5,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">All Pizza</div>
+                    <div class="card-header">All Pizza
+                        <a href="{{route('pizza.create')}}">
+                            <button class="btn btn-success" style="float: right">Add Pizza</button>
+                        </a>
+                    </div>
 
                     <div class="card-body">
                         @if (session('message'))
@@ -45,33 +49,34 @@
                                             <td><button class="btn btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal{{ $pizza->id }}">Delete</button>
                                             </td>
-                                        
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal{{ $pizza->id }}" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <form action="{{ route('pizza.destroy', $pizza->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete
-                                                                Confirmation</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Are you sure
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-danger">delete</button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal{{ $pizza->id }}" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <form action="{{ route('pizza.destroy', $pizza->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete
+                                                                    Confirmation</h1>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Are you sure
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">delete</button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                                </form>
+                                            </div>
                                         </tr>
                                     @endforeach
                                 @else
@@ -79,6 +84,7 @@
                                 @endif
                             </tbody>
                         </table>
+                        {{ $pizzas->links() }}
                     </div>
                 </div>
             </div>
