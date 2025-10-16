@@ -114,6 +114,7 @@ class PizzaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pizza::find($id)->delete();
+        return redirect()->route('pizza.index')->with('message','Pizza delete successfully!');
     }
 }

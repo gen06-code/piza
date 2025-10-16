@@ -30,7 +30,7 @@ class PizzaUpdateRequest extends FormRequest
             'medium_pizza_price' => 'required|numeric',
             'large_pizza_price' => 'required|numeric',
             'category' => 'required',
-            'image' => 'mimes:png,jpg,jpeg'
+            'image' => 'mimes:png,jpg,jpeg,webp'
         ];
     }
 
