@@ -80,7 +80,7 @@
                                         </tr>
                                     @endforeach
                                 @else
-                                    <p>No pizza to show</p>
+                                    <p>No pizza to show!!</p>
                                 @endif
                             </tbody>
                         </table>
