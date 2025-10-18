@@ -25,6 +25,7 @@
                                     <th scope="col">Small pizza</th>
                                     <th scope="col">Medium pizza</th>
                                     <th scope="col">Large pizza</th>
+                                    <th scope="col">Message</th>
                                     <th scope="col">status</th>
                                     <th scope="col">Accept</th>
                                     <th scope="col">Reject</th>
@@ -32,21 +33,27 @@
 
                                 </tr>
                             </thead>
+                            
                             <tbody>
+                                @foreach ($orders as $order)
+                              
+                                   
+                                
                                 <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
+                                    <td>{{$order->user->name}}</td>
+                                    <td>{{$order->user->email}}</td>
+                                    <td>{{$order->date}} / {{$order->time}} </td>
+                                    <td>{{$order->pizza->name}} pizza id: {{$order->pizza->id}}</td>
+                                    <td>{{$order->small_pizza}}</td>
+                                    <td>{{$order->medium_pizza}}</td>
+                                    <td>{{$order->large_pizza}}</td>
+                                    <td>{{$order->body}}</td>
+                                    <td>{{$order->status}}</td>
                                     <td><button class="btn btn-primary">Accept</button></td>
                                     <td><button class="btn btn-primary">Reject</button></td>
                                     <td><button class="btn btn-primary">Completed</button></td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
