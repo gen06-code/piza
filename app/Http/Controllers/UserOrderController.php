@@ -14,8 +14,8 @@ class UserOrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBY('id','DESC')->get();
-        return view('order.index',compact('orders'));
+        $orders = Order::orderBY('id', 'DESC')->get();
+        return view('order.index', compact('orders'));
     }
 
     /**
@@ -82,5 +82,14 @@ class UserOrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function changeStatus(Request $request, $id) 
+    {
+        
+        $order = Order::find($id);
+        Order::where('id',$id)->update(['status'=> $request->status]);
+        return back();
     }
 }

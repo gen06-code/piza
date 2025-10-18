@@ -33,26 +33,32 @@
 
                                 </tr>
                             </thead>
-                            
+
                             <tbody>
                                 @foreach ($orders as $order)
-                              
-                                   
-                                
-                                <tr>
-                                    <td>{{$order->user->name}}</td>
-                                    <td>{{$order->user->email}}</td>
-                                    <td>{{$order->date}} / {{$order->time}} </td>
-                                    <td>{{$order->pizza->name}} pizza id: {{$order->pizza->id}}</td>
-                                    <td>{{$order->small_pizza}}</td>
-                                    <td>{{$order->medium_pizza}}</td>
-                                    <td>{{$order->large_pizza}}</td>
-                                    <td>{{$order->body}}</td>
-                                    <td>{{$order->status}}</td>
-                                    <td><button class="btn btn-primary">Accept</button></td>
-                                    <td><button class="btn btn-primary">Reject</button></td>
-                                    <td><button class="btn btn-primary">Completed</button></td>
-                                </tr>
+                                    <tr>
+                                        <td>{{ $order->user->name }}</td>
+                                        <td>{{ $order->user->email }}</td>
+                                        <td>{{ $order->date }} / {{ $order->time }} </td>
+                                        <td>{{ $order->pizza->name }} pizza id: {{ $order->pizza->id }}</td>
+                                        <td>{{ $order->small_pizza }}</td>
+                                        <td>{{ $order->medium_pizza }}</td>
+                                        <td>{{ $order->large_pizza }}</td>
+                                        <td>{{ $order->body }}</td>
+                                        <td>{{ $order->status }}</td>
+                                        <form action="{{route('order.status', $order->id)}}" method="post">@csrf
+                                            <td>
+                                                <input name="status" type="submit" value="accepted" class="btn btn-primary btn-sm">
+                                            </td>
+                                            <td>
+                                                <input name="status" type="submit" value="rejected" class="btn btn-danger btn-sm">
+                                            </td>
+                                            <td>
+                                                <input name="status" type="submit" value="completed" class="btn btn-success btn-sm">
+                                            </td>
+                                            
+                                        </form>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

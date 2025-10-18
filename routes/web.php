@@ -32,6 +32,7 @@ Route::group(['middleware'=>'auth','admin'],function(){
 
     //user order
     Route::get('/user/order', [App\Http\Controllers\UserOrderController::class, 'index'])->name('user.order');
+    Route::post('/order/{id}/status', [App\Http\Controllers\UserOrderController::class, 'changeStatus'])->name('order.status');
 });
 
 
