@@ -25,6 +25,7 @@
                                     <th scope="col">Small pizza</th>
                                     <th scope="col">Medium pizza</th>
                                     <th scope="col">Large pizza</th>
+                                    <th scope="col">Total($)</th>
                                     <th scope="col">Message</th>
                                     <th scope="col">status</th>
                                     <th scope="col">Accept</th>
@@ -44,6 +45,10 @@
                                         <td>{{ $order->small_pizza }}</td>
                                         <td>{{ $order->medium_pizza }}</td>
                                         <td>{{ $order->large_pizza }}</td>
+                                        <td>{{ ($order->pizza->small_pizza_price * $order->small_pizza) + 
+                                        ($order->pizza->medium_pizza_price * $order->medium_pizza) +
+                                        ($order->pizza->large_pizza_price * $order->large_pizza) }}
+                                        </td>
                                         <td>{{ $order->body }}</td>
                                         <td>{{ $order->status }}</td>
                                         <form action="{{route('order.status', $order->id)}}" method="post">@csrf
