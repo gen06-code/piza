@@ -12,4 +12,10 @@ class FrontendController extends Controller
         $pizzas = Pizza::latest()->get();
         return view('frontpage', compact('pizzas'));
     }
+
+    public function show($id)
+    {
+        $pizza = Pizza::find($id);
+        return view('show', compact('pizza'));
+    }
 }
