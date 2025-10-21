@@ -14,10 +14,10 @@
                                     <p>Name:{{ auth()->user()->name }}</p>
                                     <p>Email:{{ auth()->user()->email }}</p>
                                     <p>Phone number:<input type="number" class="form-control" name="phone"></p>
-                                    <p>Small pizza order:<input type="number" class="form-control" name="small_pizza"></p>
-                                    <p>Medium pizza order:<input type="number" class="form-control" name="medium_pizza">
+                                    <p>Small pizzas order:<input type="number" class="form-control" name="small_pizza"></p>
+                                    <p>Medium pizzas order:<input type="number" class="form-control" name="medium_pizza">
                                     </p>
-                                    <p>Large pizza order:<input type="number" class="form-control" name="large_pizza"></p>
+                                    <p>Large pizzas order:<input type="number" class="form-control" name="large_pizza"></p>
                                     <p>
                                         <button class="btn btn-danger" type="submit">Make order</button>
                                     </p>
