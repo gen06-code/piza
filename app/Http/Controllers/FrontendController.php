@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 
@@ -22,8 +23,24 @@ class FrontendController extends Controller
     public function store(Request $request) 
     {
         if($request->small_pizza==0 && $request->medium_pizza==0 && $request->large_pizza==0 ) {
-            return;
+            return back()->with('errmessage', 'Please order more than one pizza');
         }
-        dd($request->all());
+
+        if($request->small_pizza < 0 || $request->medium_pizza < 0 || $request->large_pizza < 0 ) {
+            return back()->with('errmessage', 'Order must should not have negative number');
+        }
+
+        Order::create([
+            'time' => $request->time,
+            'date' => $request->date,
+            'user_id' => auth()->user()->id,
+            'pizza_id' => $request->pizza_id,
+            'small_pizza' => $request->small_pizza,
+            'medium_pizza' => $request->medium_pizza,
+            'large_pizza' => $request->large_pizza,
+            'body' => $request->body,
+            'phone' => $request->phone,
+        ]);
+        return back()->with('message', 'Your order is successfull');
     }
 }

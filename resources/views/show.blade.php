@@ -19,12 +19,22 @@
                                     </p>
                                     <p>Large pizzas order:<input type="number" class="form-control" name="large_pizza"></p>
                                     <p><input type="hidden" name="pizza_id" value="{{$pizza->id}}"></p>
-                                    <p><input type="date" name="date" class="form-control"></p>
-                                    <p><input type="time" name="time" class="form-control"></p>
-                                    <p><textarea class="form-control" name="body"></textarea></p>
-                                    <p>
+                                    <p><input type="date" name="date" class="form-control" required></p>
+                                    <p><input type="time" name="time" class="form-control" required></p>
+                                    <p><textarea class="form-control" name="body" required></textarea></p>
+                                    <p class="text-center">
                                         <button class="btn btn-danger" type="submit">Make order</button>
                                     </p>
+                                    @if(session('message'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('message')}}
+                                        </div>
+                                    @endif
+                                    @if(session('errmessage'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ session('errmessage')}}
+                                        </div>
+                                    @endif
                                 </div>
                             </form>
                         @else
